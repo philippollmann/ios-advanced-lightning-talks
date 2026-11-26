@@ -29,11 +29,12 @@ fi
 folders=$(echo "$changed" | grep '^teams/[^/]*/' | cut -d/ -f2 | sort -u)
 count=$(echo "$folders" | grep -c . || true)
 if [ "$count" -ne 1 ]; then
-  error "Change exactly one team folder. Found $count: $(echo $folders)"
+  error "Change exactly one team folder. Found $count: $(echo "$folders" | paste -sd ',' - | sed 's/,/, /g')"
 fi
 
 # 3. Each changed folder is complete
-for name in $folders; do
+while IFS= read -r name; do
+  [ -z "$name" ] && continue
   dir="teams/$name"
   if ! [[ "$name" =~ ^[a-z0-9-]+$ ]]; then
     error "Folder name '$name': use only lowercase letters, numbers and dashes (e.g. foundation-models)."
@@ -53,7 +54,7 @@ for name in $folders; do
   elif [ -z "$(find "$dir/Demo" -name '*.xcodeproj' -o -name 'Package.swift' -o -name '*.swiftpm' | head -1)" ]; then
     error "No Xcode project found in $dir/Demo/."
   fi
-done
+done <<< "$folders"
 
 # 4. No big files
 while IFS= read -r file; do
