@@ -46,9 +46,6 @@ for name in $folders; do
   if [ ! -f "$dir/slides.pdf" ]; then
     error "$dir/slides.pdf is missing. Export your slides as PDF."
   fi
-  if [ ! -f "$dir/screenshot.png" ]; then
-    error "$dir/screenshot.png is missing."
-  fi
   if [ ! -d "$dir/Demo" ]; then
     error "$dir/Demo/ is missing."
   elif [ -z "$(find "$dir/Demo" -name '*.xcodeproj' -o -name 'Package.swift' -o -name '*.swiftpm' | head -1)" ]; then

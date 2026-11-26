@@ -6,8 +6,6 @@
 
 **Slides:** [slides.pdf](slides.pdf)
 
-![Screenshot of the demo](screenshot.png)
-
 ## What is it?
 
 One or two sentences: what does the framework do?

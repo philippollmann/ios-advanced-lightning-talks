@@ -21,7 +21,6 @@ teams/
 └── swiftdata/            ← your folder (lowercase, dashes: e.g. foundation-models)
     ├── README.md         ← fill in the template
     ├── slides.pdf        ← your slides as PDF (not Keynote or PowerPoint)
-    ├── screenshot.png    ← one screenshot of your demo
     └── Demo/             ← your Xcode project
 ```
 
@@ -49,7 +48,6 @@ cp -R TEMPLATE teams/swiftdata     # use your framework name
 
 - Put your Xcode project into `teams/swiftdata/Demo/`
 - Export your slides as PDF to `teams/swiftdata/slides.pdf`
-- Add one `screenshot.png` of the demo
 - Fill in `teams/swiftdata/README.md`
 
 **5. Commit and push**
