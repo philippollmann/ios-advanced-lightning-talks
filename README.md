@@ -47,7 +47,7 @@ cp -R TEMPLATE teams/swiftdata     # use your framework name
 **4. Add your files**
 
 - Put your Xcode project into `teams/swiftdata/Demo/`
-- Export your slides as PDF to `teams/swiftdata/slides.pdf`
+- Export your slides as PDF and replace `teams/swiftdata/slides.pdf`
 - Fill in `teams/swiftdata/README.md`
 
 **5. Commit and push**

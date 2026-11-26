@@ -45,6 +45,8 @@ for name in $folders; do
   fi
   if [ ! -f "$dir/slides.pdf" ]; then
     error "$dir/slides.pdf is missing. Export your slides as PDF."
+  elif cmp -s "$dir/slides.pdf" TEMPLATE/slides.pdf; then
+    error "$dir/slides.pdf is still the template. Replace it with your slides."
   fi
   if [ ! -d "$dir/Demo" ]; then
     error "$dir/Demo/ is missing."
