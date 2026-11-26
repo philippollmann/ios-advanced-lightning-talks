@@ -36,9 +36,6 @@ fi
 while IFS= read -r name; do
   [ -z "$name" ] && continue
   dir="teams/$name"
-  if ! [[ "$name" =~ ^[a-z0-9-]+$ ]]; then
-    error "Folder name '$name': use only lowercase letters, numbers and dashes (e.g. foundation-models)."
-  fi
   if [ ! -f "$dir/README.md" ]; then
     error "$dir/README.md is missing. Copy it from TEMPLATE/."
   elif grep -q "Replace everything in this file" "$dir/README.md"; then

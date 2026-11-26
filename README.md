@@ -18,7 +18,7 @@ One folder per team, named after your framework:
 
 ```
 teams/
-└── swiftdata/            ← your folder (lowercase, dashes: e.g. foundation-models)
+└── swiftdata/            ← your folder, named after your framework
     ├── README.md         ← fill in the template
     ├── slides.pdf        ← your slides as PDF (not Keynote or PowerPoint)
     └── Demo/             ← your Xcode project
