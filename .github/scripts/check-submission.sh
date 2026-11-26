@@ -36,20 +36,31 @@ fi
 while IFS= read -r name; do
   [ -z "$name" ] && continue
   dir="teams/$name"
-  if [ ! -f "$dir/README.md" ]; then
-    error "$dir/README.md is missing. Copy it from TEMPLATE/."
-  elif grep -q "Replace everything in this file" "$dir/README.md"; then
-    error "$dir/README.md still contains the template text. Fill it in."
+  # README (any capitalization)
+  readme=$(find "$dir" -maxdepth 1 -type f -iname 'readme.md' | head -1)
+  if [ -z "$readme" ]; then
+    error "README.md is missing in $dir/. Copy it from TEMPLATE/."
+  elif grep -q "Replace everything in this file" "$readme"; then
+    error "$readme still contains the template text. Fill it in."
   fi
-  if [ ! -f "$dir/slides.pdf" ]; then
-    error "$dir/slides.pdf is missing. Export your slides as PDF."
-  elif cmp -s "$dir/slides.pdf" TEMPLATE/slides.pdf; then
-    error "$dir/slides.pdf is still the template. Replace it with your slides."
+
+  # Slides: any PDF, but not the template
+  real_pdf=0
+  while IFS= read -r pdf; do
+    [ -z "$pdf" ] && continue
+    if cmp -s "$pdf" TEMPLATE/slides.pdf; then
+      error "$pdf is still the template PDF. Replace it with your slides."
+    else
+      real_pdf=1
+    fi
+  done <<< "$(find "$dir" -type f -iname '*.pdf')"
+  if [ "$real_pdf" -eq 0 ]; then
+    error "No slides found in $dir/. Export your slides as PDF."
   fi
-  if [ ! -d "$dir/Demo" ]; then
-    error "$dir/Demo/ is missing."
-  elif [ -z "$(find "$dir/Demo" -name '*.xcodeproj' -o -name 'Package.swift' -o -name '*.swiftpm' | head -1)" ]; then
-    error "No Xcode project found in $dir/Demo/."
+
+  # Demo: an Xcode project anywhere in the folder
+  if [ -z "$(find "$dir" -name '*.xcodeproj' -o -name 'Package.swift' -o -name '*.swiftpm' | head -1)" ]; then
+    error "No Xcode project found in $dir/."
   fi
 done <<< "$folders"
 

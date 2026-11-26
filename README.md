@@ -14,14 +14,14 @@ It counts **20% of your grade** (lightning talk + demo).
 
 ## What you hand in
 
-One folder per team, named after your framework:
+One folder per team, named after your framework, with three things inside:
 
 ```
 teams/
 └── swiftdata/            ← your folder, named after your framework
     ├── README.md         ← fill in the template
-    ├── slides.pdf        ← your slides as PDF (not Keynote or PowerPoint)
-    └── Demo/             ← your Xcode project
+    ├── slides.pdf        ← your slides as PDF (any file name)
+    └── Demo/             ← your Xcode project (any folder name)
 ```
 
 ## How to hand it in (step by step)
@@ -47,7 +47,7 @@ cp -R TEMPLATE teams/swiftdata     # use your framework name
 **4. Add your files**
 
 - Put your Xcode project into `teams/swiftdata/Demo/`
-- Export your slides as PDF and replace `teams/swiftdata/slides.pdf`
+- Export your slides as PDF into `teams/swiftdata/` and delete the template `slides.pdf`
 - Fill in `teams/swiftdata/README.md`
 
 **5. Commit and push**
