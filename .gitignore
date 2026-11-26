@@ -1,0 +1,26 @@
+# macOS
+.DS_Store
+
+# Xcode
+DerivedData/
+build/
+*.xcuserstate
+xcuserdata/
+*.xcscmblueprint
+*.xccheckout
+
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# CocoaPods / Carthage (please use Swift Package Manager)
+Pods/
+Carthage/Build/
+
+# Secrets
+GoogleService-Info.plist
+*.p8
+*.p12
+*.mobileprovision
+.env
+Secrets.xcconfig
