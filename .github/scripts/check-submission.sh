@@ -49,7 +49,7 @@ while IFS= read -r name; do
   while IFS= read -r pdf; do
     [ -z "$pdf" ] && continue
     if cmp -s "$pdf" TEMPLATE/slides.pdf; then
-      error "$pdf is still the template PDF. Replace it with your slides."
+      error "$pdf is still the template PDF. Delete it or replace it with your slides."
     else
       real_pdf=1
     fi
