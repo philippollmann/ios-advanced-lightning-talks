@@ -8,7 +8,7 @@ Every team picked one Apple framework. In Session 5, each team shows it to the o
 This repo collects all demos and slides in one place, so everyone can look them up later.
 It counts **20% of your grade** (lightning talk + demo).
 
-**Deadline:** open your pull request by the **evening before Session 5**.
+**When:** open your pull request around Session 5. Before or right after your talk is both fine.
 
 ---
 
