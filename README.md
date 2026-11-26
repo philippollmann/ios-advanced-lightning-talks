@@ -64,8 +64,6 @@ GitHub shows a **Compare & pull request** button on your fork. Click it, check t
 
 An automatic check then looks at your folder. If it is red, click **Details** to see what is missing, fix it and push again. The pull request updates by itself.
 
-Prefer clicking over the terminal? [GitHub Desktop](https://desktop.github.com) can do all of this.
-
 ## Rules
 
 1. **Only change your own folder** in `teams/`. Do not touch other files.
